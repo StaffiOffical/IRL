@@ -28,7 +28,7 @@ app.use('/api/chat', require('./routes/chat'));
 // Fallback for SPA
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '..', 'public', 'index.html'));
-});s
+});
 
 app.get('/', (req, res) => {
   res.send("IRL ranning");
