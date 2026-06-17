@@ -8,11 +8,14 @@ const path = require('path');
 const connectDB = require('./config/db');
 
 const app = express();
-const chatRoutes = require('./routes/chat');
-const authRoutes = require('./routes/auth');
+
+
 app.use(cors());
 app.use(express.json());
+
+const chatRoutes = require('./routes/chat');
 app.use('/api/chat', chatRoutes);
+const authRoutes = require('./routes/auth');
 app.use('/api/auth', authRoutes);
 
 // Serve static frontend (if any)
