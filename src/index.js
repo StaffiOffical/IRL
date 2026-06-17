@@ -3,6 +3,12 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
+const chatRoutes = require('./routes/chat');
+app.use('/api/chat', chatRoutes);
+
+const authRoutes = require('./routes/auth');
+
+app.use('/api/auth', authRoutes);
 
 const connectDB = require('./config/db');
 
