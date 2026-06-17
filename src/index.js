@@ -3,18 +3,17 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
-const chatRoutes = require('./routes/chat');
-app.use('/api/chat', chatRoutes);
 
-const authRoutes = require('./routes/auth');
-
-app.use('/api/auth', authRoutes);
 
 const connectDB = require('./config/db');
 
 const app = express();
+const chatRoutes = require('./routes/chat');
+const authRoutes = require('./routes/auth');
 app.use(cors());
 app.use(express.json());
+app.use('/api/chat', chatRoutes);
+app.use('/api/auth', authRoutes);
 
 // Serve static frontend (if any)
 app.use(express.static(path.join(__dirname, '..', 'public')));
